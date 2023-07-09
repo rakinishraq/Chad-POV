@@ -6,7 +6,7 @@ func enter_state():
 	Player.on_floor = true
 
 func update(delta):
-	Player.player_gravity(delta)
+	#Player.player_gravity(delta)
 	if Player.movement_input != Vector2.ZERO:
 		return STATES.MOVE
 	if Player.jump_input:

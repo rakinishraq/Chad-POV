@@ -1,7 +1,9 @@
 extends "state.gd"
 
+func enter_state():
+	Player.get_node("SPRITES/MOVE").frame = 0
+
 func update(delta):
-	Player.player_gravity(delta)
 	player_movement()
 	
 	if Player.movement_input.x:
@@ -9,7 +11,8 @@ func update(delta):
 	
 	if Player.velocity == Vector2.ZERO:
 		return STATES.IDLE
-	if Player.gravity > 0:
+	if not Player.in_floor:
+		Player.set_collision_mask_value(2, false) # dead
 		return STATES.FALL
 	if Player.jump_input:
 		return STATES.JUMP
