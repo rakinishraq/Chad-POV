@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dratnwjfldduc"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_pesba"]
+[ext_resource type="PackedScene" uid="uid://dkdxtnjwqf141" path="res://scenes/entities/player/run.aseprite" id="2_qmcc7"]
+[ext_resource type="PackedScene" uid="uid://be7ncbb2opf6g" path="res://scenes/entities/player/fall.tscn" id="3_2floe"]
+[ext_resource type="Script" path="res://scenes/entities/player/STATES.gd" id="3_kqmhe"]
+[ext_resource type="PackedScene" uid="uid://1h6irprv31a" path="res://scenes/entities/player/idle.tscn" id="4_tjhkt"]
+[ext_resource type="PackedScene" uid="uid://cfqiu6qeepmx7" path="res://scenes/entities/player/jump.tscn" id="5_lqy71"]
+[ext_resource type="PackedScene" uid="uid://cfg07h72rse05" path="res://scenes/entities/player/move.tscn" id="7_87wil"]
+[ext_resource type="Texture2D" uid="uid://cmfpxomhddiix" path="res://scenes/entities/player/idle.png" id="8_uhukj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ism8"]
+size = Vector2(28.5, 38)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pesba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_2ism8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -62.0
+offset_right = 20.0
+offset_bottom = -36.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="STATES" type="Node" parent="."]
+script = ExtResource("3_kqmhe")
+
+[node name="IDLE" parent="STATES" instance=ExtResource("4_tjhkt")]
+
+[node name="MOVE" parent="STATES" instance=ExtResource("7_87wil")]
+
+[node name="JUMP" parent="STATES" instance=ExtResource("5_lqy71")]
+
+[node name="FALL" parent="STATES" instance=ExtResource("3_2floe")]
+
+[node name="SPRITES" type="Node2D" parent="."]
+
+[node name="IDLE" type="Sprite2D" parent="SPRITES"]
+position = Vector2(0, -20)
+texture = ExtResource("8_uhukj")
+
+[node name="MOVE" parent="SPRITES" instance=ExtResource("2_qmcc7")]
+visible = false
+position = Vector2(2, -25)
+frame = 5
+
+[node name="JUMP" type="Sprite2D" parent="SPRITES"]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("8_uhukj")
+
+[node name="FALL" type="Sprite2D" parent="SPRITES"]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("8_uhukj")
