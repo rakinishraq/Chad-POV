@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://iubdfnqeubou"]
+
+[ext_resource type="Script" path="res://scenes/customize.gd" id="1_en5k6"]
+[ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_nbcx4"]
+
+[node name="customize" type="Node2D"]
+script = ExtResource("1_en5k6")
+
+[node name="Player" parent="." instance=ExtResource("1_nbcx4")]
+position = Vector2(175, 147)
+scale = Vector2(2.68496, 2.68496)
+metadata/_edit_group_ = true
+
+[node name="MOVE" parent="Player/ROOT" index="1"]
+frame = 12
+
+[node name="Label" parent="Player" index="2"]
+visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TorsoRight" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 83.0
+offset_right = 261.0
+offset_bottom = 114.0
+text = "⮞"
+
+[node name="TorsoLeft" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 84.0
+offset_right = 139.0
+offset_bottom = 115.0
+scale = Vector2(-1, 1)
+text = "⮞"
+
+[connection signal="pressed" from="Control/TorsoRight" to="." method="torso_right"]
+[connection signal="pressed" from="Control/TorsoLeft" to="." method="torso_left"]
+
+[editable path="Player"]

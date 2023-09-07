@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dapfhg81p4oi0"
-path="res://.godot/imported/move.aseprite5.png-2badfbbdab3561189fe9f7a94d5fecd7.ctex"
+uid="uid://c0egt2l7x7gmf"
+path="res://.godot/imported/pixel.png-5fd5f2727b2210c36f485c903cd0a0d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/entities/player/sprites/legs/static/move.aseprite5.png"
-dest_files=["res://.godot/imported/move.aseprite5.png-2badfbbdab3561189fe9f7a94d5fecd7.ctex"]
+source_file="res://pixel.png"
+dest_files=["res://.godot/imported/pixel.png-5fd5f2727b2210c36f485c903cd0a0d4.ctex"]
 
 [params]
 

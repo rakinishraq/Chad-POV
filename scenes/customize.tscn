@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://iubdfnqeubou"]
+
+[ext_resource type="Script" path="res://scenes/customize.gd" id="1_en5k6"]
+[ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_nbcx4"]
+[ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://monogram.ttf" id="3_jou1a"]
+
+[node name="customize" type="Node2D"]
+script = ExtResource("1_en5k6")
+
+[node name="Player" parent="." instance=ExtResource("1_nbcx4")]
+position = Vector2(175, 147)
+scale = Vector2(2.68496, 2.68496)
+metadata/_edit_group_ = true
+
+[node name="MOVE" parent="Player/ROOT" index="1"]
+frame = 12
+
+[node name="Label" parent="Player" index="2"]
+visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TorsoRight" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 83.0
+offset_right = 261.0
+offset_bottom = 114.0
+text = "⮞"
+
+[node name="TorsoLeft" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 84.0
+offset_right = 139.0
+offset_bottom = 115.0
+scale = Vector2(-1, 1)
+text = "⮞"
+
+[node name="HeadRight" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 46.0
+offset_right = 261.0
+offset_bottom = 77.0
+text = "⮞"
+
+[node name="HeadLeft" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 47.0
+offset_right = 139.0
+offset_bottom = 78.0
+scale = Vector2(-1, 1)
+text = "⮞"
+
+[node name="Start" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 165.0
+offset_right = 201.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("3_jou1a")
+theme_override_font_sizes/font_size = 16
+text = "START"
+
+[connection signal="pressed" from="Control/TorsoRight" to="." method="torso_right"]
+[connection signal="pressed" from="Control/TorsoLeft" to="." method="torso_left"]
+[connection signal="pressed" from="Control/HeadRight" to="." method="head_right"]
+[connection signal="pressed" from="Control/HeadLeft" to="." method="head_left"]
+[connection signal="pressed" from="Control/Start" to="." method="start"]
+
+[editable path="Player"]
