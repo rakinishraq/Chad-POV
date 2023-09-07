@@ -7,7 +7,7 @@ func enter_state():
 
 func update(delta):
 	#Player.player_gravity(delta)
-	if Player.movement_input != Vector2.ZERO:
+	if Player.movement_input != 0:
 		return STATES.MOVE
 	if Player.jump_input:
 		return STATES.JUMP
@@ -16,5 +16,4 @@ func update(delta):
 	return null
 
 func exit_state():
-	Player.vlatest = Player.position.y
-	Player.voffset = 0
+	pass

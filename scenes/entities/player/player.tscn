@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dratnwjfldduc"]
+[gd_scene load_steps=11 format=3 uid="uid://dratnwjfldduc"]
 
-[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_pesba"]
 [ext_resource type="PackedScene" uid="uid://dkdxtnjwqf141" path="res://scenes/entities/player/move.aseprite" id="2_qmcc7"]
+[ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://monogram.ttf" id="2_vyba7"]
 [ext_resource type="PackedScene" uid="uid://be7ncbb2opf6g" path="res://scenes/entities/player/fall.tscn" id="3_2floe"]
 [ext_resource type="Script" path="res://scenes/entities/player/STATES.gd" id="3_kqmhe"]
 [ext_resource type="PackedScene" uid="uid://1h6irprv31a" path="res://scenes/entities/player/idle.tscn" id="4_tjhkt"]
@@ -9,23 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://cfg07h72rse05" path="res://scenes/entities/player/move.tscn" id="7_87wil"]
 [ext_resource type="Texture2D" uid="uid://cmfpxomhddiix" path="res://scenes/entities/player/idle.png" id="8_uhukj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ism8"]
-size = Vector2(19.25, 6)
+[sub_resource type="LabelSettings" id="LabelSettings_708dy"]
+font = ExtResource("2_vyba7")
+font_size = 11
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sg8i"]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_pesba")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.625, -1)
-shape = SubResource("RectangleShape2D_2ism8")
 
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -20.0
-offset_top = -62.0
-offset_right = 20.0
-offset_bottom = -36.0
-text = "test"
+offset_left = -25.0
+offset_top = -52.0
+offset_right = 29.0
+offset_bottom = -37.0
+text = "CHAD"
+label_settings = SubResource("LabelSettings_708dy")
 horizontal_alignment = 1
 
 [node name="STATES" type="Node" parent="."]
@@ -58,3 +56,7 @@ texture = ExtResource("8_uhukj")
 visible = false
 position = Vector2(0, -20)
 texture = ExtResource("8_uhukj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -18)
+shape = SubResource("RectangleShape2D_8sg8i")

@@ -2,7 +2,6 @@ extends "state.gd"
 
 func enter_state():
 	Player.gravity = Player.JUMP_VELOCITY
-	Player.on_floor = false
 	Player.prev_velocity = Player.velocity
 
 func update(delta):

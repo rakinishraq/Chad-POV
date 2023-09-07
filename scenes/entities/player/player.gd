@@ -12,11 +12,7 @@ var jump_input = false
 var jump_input_actuation = false
 
 var gravity = 0
-var on_floor = true
-var in_floor = true
 var prev_velocity = velocity
-var vlatest = position.y
-var voffset = 0
 
 var current_state = null
 var prev_state = null
@@ -36,13 +32,11 @@ func _physics_process(delta):
 	change_state(current_state.update(delta))
 	#$Label.text = str(current_state.get_name())
 	move_and_slide()
-	#default_move(delta)
 func player_gravity(delta):
-	if not on_floor:
+	if not is_on_floor():
 		gravity += GRAVITY * delta
 		velocity.x = prev_velocity.x * JUMP_MOVESCALE
 		velocity.y = gravity + prev_velocity.y * JUMP_MOVESCALE
-		voffset += prev_velocity.y * JUMP_MOVESCALE
 
 
 func change_state(input_state):
@@ -57,23 +51,11 @@ func change_state(input_state):
 		SPRITES.get_node(str(current_state.get_name())).visible = true
 
 func player_input():
-	movement_input = Vector2.ZERO
+	movement_input = 0
 	if Input.is_action_pressed("ui_left"):
-		movement_input.x -= 1
+		movement_input -= 1
 	if Input.is_action_pressed("ui_right"):
-		movement_input.x += 1
-	if Input.is_action_pressed("ui_up"):
-		movement_input.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		movement_input.y += 1
+		movement_input += 1
 	
 	jump_input = Input.is_action_pressed("ui_accept")
 	jump_input_actuation = Input.is_action_just_pressed("ui_accept")
-
-
-func floor_entered(body):
-	in_floor = true
-
-
-func floor_exited(body):
-	in_floor = false

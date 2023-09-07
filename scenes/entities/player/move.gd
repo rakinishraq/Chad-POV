@@ -6,18 +6,16 @@ func enter_state():
 func update(delta):
 	player_movement()
 	
-	if Player.movement_input.x:
-		Player.SPRITES.scale = Vector2(sign(Player.movement_input.x), 1)
+	if Player.movement_input:
+		Player.SPRITES.scale = Vector2(sign(Player.movement_input), 1)
 	
 	if Player.velocity == Vector2.ZERO:
 		return STATES.IDLE
-	if not Player.in_floor:
-		Player.set_collision_mask_value(2, false) # dead
+	if not Player.is_on_floor():
 		return STATES.FALL
 	if Player.jump_input:
 		return STATES.JUMP
 	return null
 
 func exit_state():
-	Player.vlatest = Player.position.y
-	Player.voffset = 0
+	pass
