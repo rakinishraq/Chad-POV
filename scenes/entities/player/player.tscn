@@ -1,21 +1,72 @@
-[gd_scene load_steps=11 format=3 uid="uid://dratnwjfldduc"]
+[gd_scene load_steps=18 format=3 uid="uid://dratnwjfldduc"]
 
-[ext_resource type="PackedScene" uid="uid://dkdxtnjwqf141" path="res://scenes/entities/player/move.aseprite" id="2_qmcc7"]
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_pesba"]
 [ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://monogram.ttf" id="2_vyba7"]
-[ext_resource type="PackedScene" uid="uid://be7ncbb2opf6g" path="res://scenes/entities/player/fall.tscn" id="3_2floe"]
-[ext_resource type="Script" path="res://scenes/entities/player/STATES.gd" id="3_kqmhe"]
-[ext_resource type="PackedScene" uid="uid://1h6irprv31a" path="res://scenes/entities/player/idle.tscn" id="4_tjhkt"]
-[ext_resource type="PackedScene" uid="uid://cfqiu6qeepmx7" path="res://scenes/entities/player/jump.tscn" id="5_lqy71"]
-[ext_resource type="PackedScene" uid="uid://cfg07h72rse05" path="res://scenes/entities/player/move.tscn" id="7_87wil"]
-[ext_resource type="Texture2D" uid="uid://cmfpxomhddiix" path="res://scenes/entities/player/idle.png" id="8_uhukj"]
+[ext_resource type="PackedScene" uid="uid://bcwyygkvqa1e7" path="res://scenes/entities/player/sprites/legs/move.aseprite" id="5_ieu57"]
+[ext_resource type="Texture2D" uid="uid://8b0uearwaxl0" path="res://scenes/entities/player/sprites/legs/idle.png" id="6_2a52p"]
+[ext_resource type="Texture2D" uid="uid://ck76ls1s27bas" path="res://scenes/entities/player/sprites/torsos/dressed.png" id="7_lkbb5"]
+[ext_resource type="Texture2D" uid="uid://d0pg1y7tjnf7v" path="res://scenes/entities/player/sprites/heads/base.png" id="8_176ks"]
+[ext_resource type="Texture2D" uid="uid://clqgrhkuodpmf" path="res://scenes/entities/player/sprites/torsos/military.png" id="8_bb3d0"]
+[ext_resource type="Texture2D" uid="uid://c4i7oulmmfw66" path="res://scenes/entities/player/sprites/heads/eagle.png" id="9_iaqmd"]
+[ext_resource type="Texture2D" uid="uid://rbdjioxytspv" path="res://scenes/entities/player/sprites/torsos/shirtless.png" id="9_ma2ky"]
+[ext_resource type="Texture2D" uid="uid://0outmrcdurx" path="res://scenes/entities/player/sprites/heads/money.png" id="10_g4oix"]
+[ext_resource type="Texture2D" uid="uid://7ggml28x8vwj" path="res://scenes/entities/player/sprites/torsos/tanktop.png" id="10_ti1ir"]
+[ext_resource type="Texture2D" uid="uid://bkk0vgtyh8qk8" path="res://scenes/entities/player/sprites/heads/pig.png" id="11_v6mcn"]
+
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sg8i"]
+size = Vector2(20, 34)
 
 [sub_resource type="LabelSettings" id="LabelSettings_708dy"]
 font = ExtResource("2_vyba7")
 font_size = 11
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sg8i"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp3oi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_lkbb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bb3d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ma2ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ti1ir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5dsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_176ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iaqmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g4oix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v6mcn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pesba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_8sg8i")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -25.0
@@ -26,37 +77,30 @@ text = "CHAD"
 label_settings = SubResource("LabelSettings_708dy")
 horizontal_alignment = 1
 
-[node name="STATES" type="Node" parent="."]
-script = ExtResource("3_kqmhe")
-
-[node name="IDLE" parent="STATES" instance=ExtResource("4_tjhkt")]
-
-[node name="MOVE" parent="STATES" instance=ExtResource("7_87wil")]
-
-[node name="JUMP" parent="STATES" instance=ExtResource("5_lqy71")]
-
-[node name="FALL" parent="STATES" instance=ExtResource("3_2floe")]
-
 [node name="SPRITES" type="Node2D" parent="."]
 
-[node name="IDLE" type="Sprite2D" parent="SPRITES"]
-position = Vector2(0, -20)
-texture = ExtResource("8_uhukj")
+[node name="idle" type="Sprite2D" parent="SPRITES"]
+modulate = Color(0.0980392, 0.0941176, 0.117647, 1)
+position = Vector2(0.5, 0)
+texture = ExtResource("6_2a52p")
 
-[node name="MOVE" parent="SPRITES" instance=ExtResource("2_qmcc7")]
+[node name="torso" type="AnimatedSprite2D" parent="SPRITES"]
+position = Vector2(-13, -8)
+sprite_frames = SubResource("SpriteFrames_dp3oi")
+centered = false
+offset = Vector2(-1, -11)
+
+[node name="move" parent="SPRITES" instance=ExtResource("5_ieu57")]
 visible = false
-position = Vector2(3, -25)
+modulate = Color(0.0980392, 0.0941176, 0.117647, 1)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-9, -8)
+centered = false
 
-[node name="JUMP" type="Sprite2D" parent="SPRITES"]
-visible = false
-position = Vector2(0, -20)
-texture = ExtResource("8_uhukj")
-
-[node name="FALL" type="Sprite2D" parent="SPRITES"]
-visible = false
-position = Vector2(0, -20)
-texture = ExtResource("8_uhukj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -18)
-shape = SubResource("RectangleShape2D_8sg8i")
+[node name="head" type="AnimatedSprite2D" parent="SPRITES"]
+position = Vector2(-10, -37)
+sprite_frames = SubResource("SpriteFrames_d5dsk")
+frame = 3
+frame_progress = 0.0380241
+centered = false
