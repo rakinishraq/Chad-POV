@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -300.0
+const ACCEL = 50.0
+const DECEL = 30.0
+const AIR_CTRL = 30.0
 
 var animator
 
@@ -27,9 +30,12 @@ func _physics_process(delta):
 	# Horizontal Movement
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		var _ctrl = AIR_CTRL
+		if is_on_floor():
+			_ctrl = ACCEL
+		velocity.x = move_toward(velocity.x, direction * SPEED, _ctrl)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, DECEL * int(is_on_floor()))
 	move_and_slide()
 	
 	# Animation
@@ -38,5 +44,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			if animator.get_current_animation() != "move":
 				animator.play("move")
+		else:
+			animator.play("idle")
 	else:
 		animator.play("idle")

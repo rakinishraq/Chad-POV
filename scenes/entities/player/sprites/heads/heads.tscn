@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxy0jx1pmpllj"]
+
+[ext_resource type="Texture2D" uid="uid://c4i7oulmmfw66" path="res://scenes/entities/player/sprites/heads/eagle.png" id="1_eokyw"]
+[ext_resource type="Texture2D" uid="uid://0outmrcdurx" path="res://scenes/entities/player/sprites/heads/money.png" id="2_0o2eb"]
+[ext_resource type="Texture2D" uid="uid://bkk0vgtyh8qk8" path="res://scenes/entities/player/sprites/heads/pig.png" id="3_c58en"]
+[ext_resource type="Texture2D" uid="uid://d0pg1y7tjnf7v" path="res://scenes/entities/player/sprites/heads/base.png" id="4_g78rh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5dsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eokyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0o2eb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c58en")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g78rh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HEADS" type="AnimatedSprite2D"]
+position = Vector2(-11, -32)
+sprite_frames = SubResource("SpriteFrames_d5dsk")
+frame = 3
+centered = false

@@ -13,7 +13,9 @@ config_version=5
 config/name="Chad POV"
 run/main_scene="res://scenes/customize.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-boot_splash/bg_color=Color(0.87451, 0.901961, 0.913725, 1)
+boot_splash/bg_color=Color(0.0196078, 0.0313726, 0.105882, 1)
+boot_splash/image="res://godot.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [aseprite_importers]

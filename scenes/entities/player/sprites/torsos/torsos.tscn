@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cow730f7vvy00"]
+
+[ext_resource type="Texture2D" uid="uid://ck76ls1s27bas" path="res://scenes/entities/player/sprites/torsos/dressed.png" id="1_dho8n"]
+[ext_resource type="Texture2D" uid="uid://clqgrhkuodpmf" path="res://scenes/entities/player/sprites/torsos/military.png" id="2_2iq2y"]
+[ext_resource type="Texture2D" uid="uid://rbdjioxytspv" path="res://scenes/entities/player/sprites/torsos/shirtless.png" id="3_4narm"]
+[ext_resource type="Texture2D" uid="uid://7ggml28x8vwj" path="res://scenes/entities/player/sprites/torsos/tanktop.png" id="4_lbhuj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp3oi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dho8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2iq2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4narm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lbhuj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TORSOS" type="AnimatedSprite2D"]
+position = Vector2(-14, -3)
+sprite_frames = SubResource("SpriteFrames_dp3oi")
+frame = 3
+centered = false
+offset = Vector2(-1, -11)
