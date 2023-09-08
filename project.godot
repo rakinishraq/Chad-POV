@@ -13,12 +13,16 @@ config_version=5
 config/name="Chad POV"
 run/main_scene="res://scenes/customize.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-boot_splash/bg_color=Color(0.388235, 0.431373, 0.447059, 1)
+boot_splash/bg_color=Color(0.87451, 0.901961, 0.913725, 1)
 config/icon="res://icon.svg"
 
 [aseprite_importers]
 
 aseprite_executable_path="C:/Programs/Libresprite/libresprite.exe"
+
+[autoload]
+
+GameState="*res://global.gd"
 
 [display]
 
@@ -69,4 +73,4 @@ ui_down={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.388235, 0.431373, 0.447059, 1)
+environment/defaults/default_clear_color=Color(0.87451, 0.901961, 0.913725, 1)

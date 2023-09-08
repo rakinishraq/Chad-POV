@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dratnwjfldduc"]
+[gd_scene load_steps=31 format=3 uid="uid://dratnwjfldduc"]
 
 [ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://monogram.ttf" id="2_vyba7"]
 [ext_resource type="Texture2D" uid="uid://8b0uearwaxl0" path="res://scenes/entities/player/sprites/legs/idle.png" id="6_2a52p"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://gjernjus0hmn" path="res://scenes/entities/player/sprites/hair/jeb.png" id="15_yjvdp"]
 [ext_resource type="Texture2D" uid="uid://drbnvybgepq6s" path="res://scenes/entities/player/sprites/hair/midpart.png" id="16_1rj6x"]
 [ext_resource type="Texture2D" uid="uid://bubhmmp2ojng1" path="res://scenes/entities/player/sprites/hair/normal.png" id="17_mkkfo"]
+[ext_resource type="Texture2D" uid="uid://kl1q3p27jn6o" path="res://scenes/entities/player/sprites/hair/bald.png" id="17_v4uv4"]
 [ext_resource type="Texture2D" uid="uid://c0egt2l7x7gmf" path="res://pixel.png" id="18_5deh5"]
 [ext_resource type="Texture2D" uid="uid://bn0p6dinxba3f" path="res://scenes/entities/player/sprites/hair/sideburns.png" id="18_bmevf"]
 
@@ -79,6 +80,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("14_5jdpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_v4uv4")
 }],
 "loop": true,
 "name": &"default",
@@ -290,16 +294,15 @@ sprite_frames = SubResource("SpriteFrames_8g4ld")
 centered = false
 
 [node name="BROWS" type="Node2D" parent="ROOT"]
+modulate = Color(0.141176, 0.219608, 0.254902, 1)
 
 [node name="RightBrow" type="Sprite2D" parent="ROOT/BROWS"]
-modulate = Color(0.196078, 0.176471, 0.14902, 1)
 position = Vector2(-5, -23)
 scale = Vector2(4, 2)
 texture = ExtResource("18_5deh5")
 centered = false
 
 [node name="LeftBrow" type="Sprite2D" parent="ROOT/BROWS"]
-modulate = Color(0.196078, 0.176471, 0.14902, 1)
 position = Vector2(4, -23)
 scale = Vector2(3, 2)
 texture = ExtResource("18_5deh5")

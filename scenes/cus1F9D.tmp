@@ -18,9 +18,6 @@ modulate = Color(0.0980392, 0.0941176, 0.117647, 1)
 [node name="MOVE" parent="Player/ROOT" index="1"]
 frame = 12
 
-[node name="BROWS" parent="Player/ROOT" index="5"]
-position = Vector2(0, -7.62939e-06)
-
 [node name="Label" parent="Player" index="2"]
 visible = false
 
@@ -81,39 +78,15 @@ offset_bottom = 151.0
 scale = Vector2(-1, 1)
 text = "⮞"
 
-[node name="Random" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 165.0
-offset_right = 160.0
-offset_bottom = 196.0
-theme_override_fonts/font = ExtResource("3_jou1a")
-theme_override_font_sizes/font_size = 16
-text = "⚄"
-
 [node name="Start" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 165.0
+offset_left = 145.0
 offset_top = 165.0
-offset_right = 221.0
+offset_right = 201.0
 offset_bottom = 196.0
 theme_override_fonts/font = ExtResource("3_jou1a")
 theme_override_font_sizes/font_size = 16
 text = "START"
-
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = 98.0
-offset_top = 3.0
-offset_right = 251.0
-offset_bottom = 34.0
-theme_override_fonts/font = ExtResource("3_jou1a")
-theme_override_font_sizes/font_size = 28
-text = "CHAD"
-placeholder_text = "NAME"
-alignment = 1
-caret_blink = true
-caret_column = 4
-caret_force_displayed = true
 
 [connection signal="pressed" from="Control/HeadRight" to="." method="head_right"]
 [connection signal="pressed" from="Control/HeadLeft" to="." method="head_left"]
@@ -121,7 +94,6 @@ caret_force_displayed = true
 [connection signal="pressed" from="Control/TorsoLeft" to="." method="torso_left"]
 [connection signal="pressed" from="Control/PantRight" to="." method="pants_right"]
 [connection signal="pressed" from="Control/PantLeft" to="." method="pants_left"]
-[connection signal="pressed" from="Control/Random" to="." method="random"]
 [connection signal="pressed" from="Control/Start" to="." method="start"]
 
 [editable path="Player"]
