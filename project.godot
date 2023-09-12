@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [aseprite_importers]
 
-aseprite_executable_path="C:/Programs/Libresprite/libresprite.exe"
+aseprite_executable_path="libresprite"
 
 [autoload]
 
@@ -73,4 +73,5 @@ ui_down={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.87451, 0.901961, 0.913725, 1)
