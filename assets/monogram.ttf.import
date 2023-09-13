@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cy7k1vds10ifh"
-path="res://.godot/imported/monogram.ttf-251ba65795ff272578544793442aad20.fontdata"
+path="res://.godot/imported/monogram.ttf-8310b04578b3a035dcf82be9c901f1f9.fontdata"
 
 [deps]
 
-source_file="res://monogram.ttf"
-dest_files=["res://.godot/imported/monogram.ttf-251ba65795ff272578544793442aad20.fontdata"]
+source_file="res://assets/monogram.ttf"
+dest_files=["res://.godot/imported/monogram.ttf-8310b04578b3a035dcf82be9c901f1f9.fontdata"]
 
 [params]
 

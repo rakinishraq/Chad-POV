@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/customize.gd" id="1_en5k6"]
 [ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_nbcx4"]
-[ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://monogram.ttf" id="3_jou1a"]
+[ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://assets/monogram.ttf" id="3_jou1a"]
 
 [node name="customize" type="Node2D"]
 script = ExtResource("1_en5k6")
