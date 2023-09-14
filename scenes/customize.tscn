@@ -10,6 +10,7 @@ script = ExtResource("1_en5k6")
 [node name="Player" parent="." instance=ExtResource("1_nbcx4")]
 position = Vector2(175, 147)
 scale = Vector2(2.68496, 2.68496)
+script = null
 metadata/_edit_group_ = true
 
 [node name="MOVE" parent="Player/ROOT" index="1"]

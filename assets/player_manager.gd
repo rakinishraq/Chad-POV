@@ -12,17 +12,16 @@ signal player_left(player)
 # use get_player_data() and set_player_data() to use this dictionary.
 var player_data: Dictionary = {}
 
-const MAX_PLAYERS = 8
+const MAX_PLAYERS = 4
 
 func join(device: int):
 	var player = next_player()
 	if player >= 0:
-		# initialize default player data here
-		# "team" and "car" are remnants from my game just to provide an example
 		player_data[player] = {
-			"device": device,
-			"team":0,
-			"car":"muscle",
+			"head": GameState.rng.randi_range(0, GameState.heads+GameState.hairs-1),
+			"torso":GameState.rng.randi_range(0, GameState.torsos),
+			"pants":GameState.rng.randi_range(0, GameState.pants),
+			"name":"Chad-ski"
 		}
 		player_joined.emit(player)
 
@@ -59,7 +58,7 @@ func set_player_data(player: int, key: StringName, value: Variant):
 # this is an example of how to look for an action on all devices
 func handle_join_input():
 	for device in get_unjoined_devices():
-		if MultiplayerInput.is_action_just_pressed(device, "join"):
+		if MultiplayerInput.is_action_just_pressed(device, "action"):
 			join(device)
 
 # to see if anybody is pressing the "start" action
@@ -79,7 +78,7 @@ func is_device_joined(device: int) -> bool:
 	return false
 
 # returns a valid player integer for a new player.
-# returns -1 if there is no room for a new player.
+# returns -1 if there is no room for a new .
 func next_player() -> int:
 	for i in MAX_PLAYERS:
 		if !player_data.has(i): return i

@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+signal leave
+
+var player: int
+var input
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
