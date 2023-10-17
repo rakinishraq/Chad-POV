@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkk0vgtyh8qk8"
-path="res://.godot/imported/pig.png-15a3e2223a4f509f7f2b108b3ab313d2.ctex"
+path.bptc="res://.godot/imported/pig.png-15a3e2223a4f509f7f2b108b3ab313d2.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/entities/player/sprites/heads/pig.png"
-dest_files=["res://.godot/imported/pig.png-15a3e2223a4f509f7f2b108b3ab313d2.ctex"]
+dest_files=["res://.godot/imported/pig.png-15a3e2223a4f509f7f2b108b3ab313d2.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

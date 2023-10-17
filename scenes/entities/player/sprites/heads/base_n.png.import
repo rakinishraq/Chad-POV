@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0outmrcdurx"
-path.bptc="res://.godot/imported/money.png-59b9896188a9ae00ad7fe84b85627be1.bptc.ctex"
+uid="uid://dd141ed53q5et"
+path.bptc="res://.godot/imported/base_n.png-5ed3de20c57715dffa4819b0796ff91f.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/entities/player/sprites/heads/money.png"
-dest_files=["res://.godot/imported/money.png-59b9896188a9ae00ad7fe84b85627be1.bptc.ctex"]
+source_file="res://scenes/entities/player/sprites/heads/base_n.png"
+dest_files=["res://.godot/imported/base_n.png-5ed3de20c57715dffa4819b0796ff91f.bptc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://scenes/entities/player/sprites/heads/base_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

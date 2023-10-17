@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://ydcw0otcpc7l"]
+
+[ext_resource type="Script" path="res://scenes/entities/player3d/player_3d.gd" id="1_mxalt"]
+[ext_resource type="Texture2D" uid="uid://7ggml28x8vwj" path="res://scenes/entities/player/sprites/torsos/tanktop.png" id="1_wos1g"]
+[ext_resource type="Texture2D" uid="uid://dd141ed53q5et" path="res://scenes/entities/player/sprites/heads/base_n.png" id="2_0qg0w"]
+[ext_resource type="Texture2D" uid="uid://8b0uearwaxl0" path="res://scenes/entities/player/sprites/legs/idle.png" id="2_4ug1v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbk1n"]
+size = Vector3(0.27134, 0.372723, 0.0238057)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sie3l"]
+load_path = "res://.godot/imported/base.png-a3d8f149866126d31500b17ef2326898.bptc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65qju"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_sie3l")
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource("2_0qg0w")
+rim = 0.37
+rim_tint = 0.62
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_2yf4m"]
+material = SubResource("StandardMaterial3D_65qju")
+size = Vector2(0.23, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rmxr"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_wos1g")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ei4r6"]
+material = SubResource("StandardMaterial3D_3rmxr")
+size = Vector2(0.27, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wfhh"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_4ug1v")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_vlrkf"]
+material = SubResource("StandardMaterial3D_2wfhh")
+size = Vector2(0.17, 0.1)
+
+[node name="Player3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.394554, 0)
+script = ExtResource("1_mxalt")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.859)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00845408, -0.0437251, 0)
+shape = SubResource("BoxShape3D_rbk1n")
+
+[node name="ROOT" type="Node3D" parent="."]
+
+[node name="Head" type="MeshInstance3D" parent="ROOT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("QuadMesh_2yf4m")
+skeleton = NodePath("../../..")
+
+[node name="Torso" type="MeshInstance3D" parent="ROOT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, -0.059969, 0)
+mesh = SubResource("QuadMesh_ei4r6")
+skeleton = NodePath("")
+
+[node name="Legs" type="MeshInstance3D" parent="ROOT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+mesh = SubResource("QuadMesh_vlrkf")
+skeleton = NodePath("")

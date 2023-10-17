@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://8yxke0bfn3yn"]
+
+[ext_resource type="PackedScene" uid="uid://ydcw0otcpc7l" path="res://scenes/entities/player3d/player_3d.tscn" id="1_pn63b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t7fgp"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jonl"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="Environment" id="Environment_5fajn"]
+
+[node name="World" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_t7fgp")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7jonl")
+
+[node name="Player3D" parent="." instance=ExtResource("1_pn63b")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5fajn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.6, 0.2)
+visible = false
