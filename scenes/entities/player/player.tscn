@@ -12,8 +12,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxukx"]
 shader = ExtResource("3_7c2v1")
+shader_parameter/line_thickness = 3.0
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 3.684
 
 [sub_resource type="Animation" id="Animation_djiqd"]
 resource_name = "idle"

@@ -361,29 +361,29 @@ script = ExtResource("1_008le")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(489, 0)
+motion_mirroring = Vector2(370, 0)
 
 [node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(230.512, 121.538)
-scale = Vector2(0.849, 0.849)
+position = Vector2(175.472, 101.328)
+scale = Vector2(0.644, 0.644)
 texture = ExtResource("4_woe47")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(489, 0)
+motion_mirroring = Vector2(370, 0)
 
 [node name="5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(230.512, 121.538)
-scale = Vector2(0.849, 0.849)
+position = Vector2(175.472, 101.328)
+scale = Vector2(0.644, 0.644)
 texture = ExtResource("5_igdlr")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(489, 0)
+motion_mirroring = Vector2(370, 0)
 
 [node name="6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(230.512, 121.538)
-scale = Vector2(0.849, 0.849)
+position = Vector2(175.472, 101.328)
+scale = Vector2(0.644, 0.644)
 texture = ExtResource("6_wfn44")
 
 [node name="TileMap" type="TileMap" parent="."]

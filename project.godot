@@ -30,8 +30,8 @@ PlayerManager="res://assets/player_manager.gd"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=350
+window/size/viewport_height=200
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
@@ -42,7 +42,7 @@ project/assembly_name="Chad POV"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/FollowParent/plugin.cfg", "res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
+enabled=PackedStringArray("res://addons/FollowParent/plugin.cfg", "res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [importer_defaults]
 

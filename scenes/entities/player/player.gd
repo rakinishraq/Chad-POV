@@ -56,7 +56,7 @@ func _physics_process(delta):
 	else:
 		animator.play("idle")
 	
-	#$ROOT/CanvasGroup.material.set_shader_parameter("line_thickness",
-	#	min(6.1 / 1920 * DisplayServer.window_get_size().x,
-	#		6.0 / 1080 * DisplayServer.window_get_size().y)
-	#d)
+	$ROOT/CanvasGroup.material.set_shader_parameter("line_thickness",
+		min(5.0 / 1920 * DisplayServer.window_get_size().x,
+			5.0 / 1080 * DisplayServer.window_get_size().y)
+	)
