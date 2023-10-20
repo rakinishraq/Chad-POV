@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://db4y1u0vnte2y"]
+[gd_scene load_steps=10 format=3 uid="uid://db4y1u0vnte2y"]
 
 [ext_resource type="Script" path="res://scenes/worlds/level.gd" id="1_008le"]
 [ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_n2nvr"]
-[ext_resource type="Texture2D" uid="uid://bm5y80m486aam" path="res://assets/nature-paltformer-tileset-16x16.png" id="3_lray1"]
-[ext_resource type="Texture2D" uid="uid://ci24evxx2crak" path="res://assets/background/1.png" id="4_woe47"]
-[ext_resource type="Texture2D" uid="uid://dsyuh7ssan67y" path="res://assets/background/2.png" id="5_igdlr"]
-[ext_resource type="Texture2D" uid="uid://bbqc8i3oprk24" path="res://assets/background/3.png" id="6_wfn44"]
+[ext_resource type="Texture2D" uid="uid://bm5y80m486aam" path="res://scenes/worlds/nature-paltformer-tileset-16x16.png" id="3_lray1"]
+[ext_resource type="Texture2D" uid="uid://ci24evxx2crak" path="res://scenes/worlds/background/1.png" id="4_woe47"]
+[ext_resource type="Texture2D" uid="uid://dsyuh7ssan67y" path="res://scenes/worlds/background/2.png" id="5_igdlr"]
+[ext_resource type="Texture2D" uid="uid://bbqc8i3oprk24" path="res://scenes/worlds/background/3.png" id="6_wfn44"]
+[ext_resource type="PackedScene" uid="uid://bwxnwceyuy6p3" path="res://scenes/entities/coin/coin.tscn" id="7_h5hpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwjfm"]
 resource_name = "3"
@@ -422,5 +423,8 @@ text = "⮞"
 
 [node name="Player" parent="." instance=ExtResource("1_n2nvr")]
 position = Vector2(65, 100)
+
+[node name="Coin" parent="." instance=ExtResource("7_h5hpa")]
+position = Vector2(183, 95)
 
 [connection signal="pressed" from="Camera2D/Control/Button" to="." method="_on_button_pressed"]

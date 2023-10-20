@@ -124,6 +124,12 @@ outline_color = Color(0.901961, 0.901961, 0.901961, 1)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_wcys8")
+input_left = "ui_left"
+input_right = "ui_right"
+input_jump = "ui_up"
+max_jump_height = 60.0
+max_acceleration = 1500
+friction = 10
 
 [node name="ROOT" type="Node2D" parent="."]
 position = Vector2(0, -10)

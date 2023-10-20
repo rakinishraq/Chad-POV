@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends PlatformerController2D
 
 signal leave
 
@@ -20,32 +20,13 @@ func _ready():
 	animator = $Animator
 	camera = get_parent().get_node("Camera2D")
 
-func _physics_process(delta):
+func _process(delta):
 	# Quit button
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-	
-	# Gravity
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	# Jump
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Horizontal Movement
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		var _ctrl = AIR_CTRL
-		if is_on_floor():
-			_ctrl = ACCEL
-		velocity.x = move_toward(velocity.x, direction * SPEED, _ctrl)
-	else:
-		velocity.x = move_toward(velocity.x, 0, DECEL * int(is_on_floor()))
-	move_and_slide()
-	camera.position.x = position.x
-	
+		
 	# Animation
-	if velocity.x != 0:
+	if abs(velocity).x > 100:
 		$ROOT.scale.x = sign(velocity.x)
 		$Collision2D.scale.x = sign(velocity.x)
 		if is_on_floor():

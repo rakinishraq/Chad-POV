@@ -40,7 +40,7 @@ project/assembly_name="Chad POV"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/FollowParent/plugin.cfg", "res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/FollowParent/plugin.cfg", "res://addons/gdfxr/plugin.cfg", "res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [importer_defaults]
 
