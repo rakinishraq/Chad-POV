@@ -1,10 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwxnwceyuy6p3"]
+[gd_scene load_steps=7 format=3 uid="uid://bwxnwceyuy6p3"]
 
-[ext_resource type="Texture2D" uid="uid://b8dc7hhklu3i4" path="res://scenes/entities/coin/coin.png" id="1_4q5wy"]
+[ext_resource type="Texture2D" uid="uid://mtc7c5xtt178" path="res://scenes/entities/coin/coin.png" id="1_4q5wy"]
 [ext_resource type="Script" path="res://scenes/entities/coin/coin.gd" id="1_s24co"]
 [ext_resource type="AudioStream" uid="uid://1yau0k0on4g2" path="res://scenes/entities/coin/coin.sfxr" id="3_fiasy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qa22r"]
+radius = 16.0312
+
+[sub_resource type="Animation" id="Animation_x35do"]
+resource_name = "idle"
+length = 0.90001
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e3ilx"]
+_data = {
+"idle": SubResource("Animation_x35do")
+}
 
 [node name="Coin" type="Node2D"]
 script = ExtResource("1_s24co")
@@ -14,10 +38,22 @@ script = ExtResource("1_s24co")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_qa22r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4q5wy")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fiasy")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-10, -10)
+texture = ExtResource("1_4q5wy")
+centered = false
+hframes = 9
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_e3ilx")
+}
+speed_scale = 2.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

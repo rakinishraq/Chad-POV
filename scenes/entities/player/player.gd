@@ -41,3 +41,12 @@ func _process(delta):
 		min(5.0 / 1920 * DisplayServer.window_get_size().x,
 			5.0 / 1080 * DisplayServer.window_get_size().y)
 	)
+	
+	if position.y > 250:
+		position = Vector2(70, 100)
+		velocity = Vector2.ZERO
+		$DeathSound.play()
+
+
+func _on_jumped(is_ground_jump):
+	$JumpSound.play()

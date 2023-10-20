@@ -10,7 +10,7 @@ var torsos
 var hairs
 var pants
 
-var players = []
+var player_data = []
 
 func _ready():
 	rng.randomize()

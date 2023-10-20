@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://iubdfnqeubou"]
+[gd_scene load_steps=5 format=3 uid="uid://iubdfnqeubou"]
 
 [ext_resource type="Script" path="res://scenes/worlds/customize.gd" id="1_en5k6"]
 [ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_nbcx4"]
 [ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://assets/monogram.ttf" id="3_jou1a"]
+[ext_resource type="AudioStream" uid="uid://7un3gbmm1ng" path="res://assets/click.sfxr" id="4_85fmq"]
 
 [node name="customize" type="Node2D"]
 script = ExtResource("1_en5k6")
 
 [node name="Player" parent="." instance=ExtResource("1_nbcx4")]
-position = Vector2(175, 147)
+position = Vector2(173, 133)
 scale = Vector2(2.68496, 2.68496)
 script = null
 metadata/_edit_group_ = true
@@ -25,91 +26,79 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="LineEdit" type="LineEdit" parent="Control"]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 3.0
-offset_right = 251.0
-offset_bottom = 34.0
-theme_override_fonts/font = ExtResource("3_jou1a")
-theme_override_font_sizes/font_size = 28
-text = "CHAD"
-placeholder_text = "NAME"
-alignment = 1
-caret_blink = true
-caret_column = 4
-caret_force_displayed = true
-
 [node name="HeadLeft" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 47.0
-offset_right = 139.0
-offset_bottom = 78.0
+offset_left = 111.0
+offset_top = 30.0
+offset_right = 138.0
+offset_bottom = 61.0
 scale = Vector2(-1, 1)
 text = "⮞"
 
 [node name="HeadRight" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 46.0
-offset_right = 261.0
-offset_bottom = 77.0
+offset_left = 233.0
+offset_top = 29.0
+offset_right = 260.0
+offset_bottom = 60.0
 text = "⮞"
 
 [node name="TorsoLeft" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 84.0
-offset_right = 139.0
-offset_bottom = 115.0
+offset_left = 111.0
+offset_top = 67.0
+offset_right = 138.0
+offset_bottom = 98.0
 scale = Vector2(-1, 1)
 text = "⮞"
 
 [node name="TorsoRight" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 83.0
-offset_right = 261.0
-offset_bottom = 114.0
+offset_left = 233.0
+offset_top = 66.0
+offset_right = 260.0
+offset_bottom = 97.0
 text = "⮞"
 
 [node name="PantLeft" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 120.0
-offset_right = 139.0
-offset_bottom = 151.0
+offset_left = 111.0
+offset_top = 103.0
+offset_right = 138.0
+offset_bottom = 134.0
 scale = Vector2(-1, 1)
 text = "⮞"
 
 [node name="PantRight" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 119.0
-offset_right = 261.0
-offset_bottom = 150.0
+offset_left = 233.0
+offset_top = 102.0
+offset_right = 260.0
+offset_bottom = 133.0
 text = "⮞"
 
 [node name="Random" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 165.0
-offset_right = 160.0
-offset_bottom = 196.0
+offset_left = 128.0
+offset_top = 148.0
+offset_right = 159.0
+offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("3_jou1a")
 theme_override_font_sizes/font_size = 16
 text = "⚄"
 
 [node name="Start" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 165.0
-offset_top = 165.0
-offset_right = 221.0
-offset_bottom = 196.0
+offset_left = 164.0
+offset_top = 148.0
+offset_right = 220.0
+offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("3_jou1a")
 theme_override_font_sizes/font_size = 16
 text = "START"
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_85fmq")
 
 [connection signal="pressed" from="Control/HeadLeft" to="." method="head_left"]
 [connection signal="pressed" from="Control/HeadRight" to="." method="head_right"]

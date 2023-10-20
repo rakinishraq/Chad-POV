@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Chad POV"
+config/name="Nacho"
 run/main_scene="res://scenes/worlds/customize.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.87451, 0.901961, 0.913725, 1)
@@ -25,6 +25,7 @@ aseprite_executable_path="libresprite"
 [autoload]
 
 GameState="*res://assets/global.gd"
+Bgm="*res://scenes/bgm.tscn"
 
 [display]
 

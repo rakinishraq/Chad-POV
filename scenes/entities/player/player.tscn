@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dratnwjfldduc"]
+[gd_scene load_steps=17 format=3 uid="uid://dratnwjfldduc"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_wcys8"]
 [ext_resource type="Shader" path="res://scenes/entities/player/outline.gdshader" id="3_7c2v1"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c0egt2l7x7gmf" path="res://assets/pixel.png" id="6_45ojm"]
 [ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://assets/monogram.ttf" id="7_myxkt"]
 [ext_resource type="PackedScene" uid="uid://ch4fmr5hrhqvl" path="res://scenes/entities/player/sprites/legs/move.tscn" id="9_kt2wy"]
+[ext_resource type="AudioStream" uid="uid://dvucp30ga6si0" path="res://scenes/entities/player/jump.sfxr" id="10_km57o"]
+[ext_resource type="AudioStream" uid="uid://bq166u3ymnneb" path="res://scenes/entities/player/death.sfxr" id="11_7pmwj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxukx"]
 shader = ExtResource("3_7c2v1")
@@ -183,10 +185,18 @@ offset_left = -26.0
 offset_top = -58.0
 offset_right = 28.0
 offset_bottom = -43.0
-text = "CHAD"
+text = "NACHO"
 label_settings = SubResource("LabelSettings_708dy")
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Collision2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(9, -39, 9, -25, 9, -10, 9, 0, -9, 0, -9, -10, -9, -25, -9, -39)
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_km57o")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7pmwj")
+
+[connection signal="jumped" from="." to="." method="_on_jumped"]

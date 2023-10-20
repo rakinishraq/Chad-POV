@@ -17,6 +17,7 @@ func torso_left():
 func change_torso(dir):
 	torso = wrapi(torso+dir, 0, GameState.torsos)
 	GameState.customize(player, head, torso, pant)
+	$click.play()
 
 func head_right():
 	change_head(1)
@@ -25,6 +26,7 @@ func head_left():
 func change_head(dir):
 	head = wrapi(head+dir, 0, GameState.heads+GameState.hairs-1)
 	GameState.customize(player, head, torso, pant)
+	$click.play()
 
 
 func pants_left():
@@ -34,6 +36,7 @@ func pants_right():
 func change_pants(dir):
 	pant = wrapi(pant+dir, 0, GameState.pants)
 	GameState.customize(player, head, torso, pant)
+	$click.play()
 
 	
 func random():
@@ -42,9 +45,6 @@ func random():
 	change_pants(GameState.rng.randi_range(0, GameState.pants))
 
 func start():
-	if GameState.players:
-		GameState.players[0] = [head, torso, pant, $Control/LineEdit.get_text()]
-	else:
-		GameState.players.append([head, torso, pant, $Control/LineEdit.get_text()])
+	GameState.player_data = [head, torso, pant]
 	get_tree().change_scene_to_file("res://scenes/worlds/level.tscn")
 

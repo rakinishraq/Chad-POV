@@ -4,12 +4,12 @@ var collected = false
 var sound = preload("coin.sfxr")
 
 func _ready():
-	pass
+	$AnimationPlayer.play("idle")
 
 
 func _on_area_2d_body_entered(body):
 	$AudioStreamPlayer2D.play()
-	$Area2D/CollisionShape2D.disabled = true
+	$Area2D.queue_free()
 	collected = true
 
 func _physics_process(delta):
@@ -17,5 +17,7 @@ func _physics_process(delta):
 		return
 	$Sprite2D.translate(Vector2.UP*5)
 	$Sprite2D.modulate.a -= delta * 8
-	if $Sprite2D.modulate.a <= 0.1:
-		queue_free()
+
+
+func _on_audio_stream_player_2d_finished():
+	queue_free()
