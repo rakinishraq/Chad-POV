@@ -21,18 +21,19 @@ func _ready():
 
 func customize(player, head, torso, pant, nametag=""):
 	var head_base = min(head, heads-1)
-	player.get_node("ROOT/HEADS").set_frame(head_base)
+	var player_canvas = player.get_node("ROOT/CanvasGroup")
+	player_canvas.get_node("HEADS").set_frame(head_base)
 	var head_hair = head-GameState.heads+1
 	player.get_node("ROOT/BROWS").modulate = GameState.hair_colors[head_hair]
-	player.get_node("ROOT/HAIRS").set_frame(head_hair)
+	player_canvas.get_node("HAIRS").set_frame(head_hair)
 	var visible_hair = head >= GameState.heads - 1
-	player.get_node("ROOT/HAIRS").visible = visible_hair
+	player_canvas.get_node("HAIRS").visible = visible_hair
 	var visible_brows = head_base == GameState.heads - 1
 	player.get_node("ROOT/BROWS").visible = visible_brows
 	
-	player.get_node("ROOT/TORSOS").set_frame(torso)
+	player_canvas.get_node("TORSOS").set_frame(torso)
 	
-	player.get_node("ROOT/IDLE").modulate = GameState.pant_colors[pant]
-	player.get_node("ROOT/MOVE").modulate = GameState.pant_colors[pant]
+	player_canvas.get_node("IDLE").modulate = GameState.pant_colors[pant]
+	player_canvas.get_node("MOVE").modulate = GameState.pant_colors[pant]
 	
 	player.get_node("NameTag").text = nametag

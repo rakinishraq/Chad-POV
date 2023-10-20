@@ -1,0 +1,186 @@
+[gd_scene load_steps=15 format=3 uid="uid://dratnwjfldduc"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_wcys8"]
+[ext_resource type="Shader" path="res://scenes/entities/player/outline.gdshader" id="3_7c2v1"]
+[ext_resource type="PackedScene" uid="uid://cow730f7vvy00" path="res://scenes/entities/player/sprites/torsos/torsos.tscn" id="3_jpm4a"]
+[ext_resource type="PackedScene" uid="uid://cxy0jx1pmpllj" path="res://scenes/entities/player/sprites/heads/heads.tscn" id="4_mkaw6"]
+[ext_resource type="PackedScene" uid="uid://dg7ddwnbtawyi" path="res://scenes/entities/player/sprites/hair/hairs.tscn" id="5_s2gbs"]
+[ext_resource type="Texture2D" uid="uid://8b0uearwaxl0" path="res://scenes/entities/player/sprites/legs/idle.png" id="6_2a52p"]
+[ext_resource type="Texture2D" uid="uid://c0egt2l7x7gmf" path="res://assets/pixel.png" id="6_45ojm"]
+[ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://assets/monogram.ttf" id="7_myxkt"]
+[ext_resource type="PackedScene" uid="uid://ch4fmr5hrhqvl" path="res://scenes/entities/player/sprites/legs/move.tscn" id="9_kt2wy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxukx"]
+shader = ExtResource("3_7c2v1")
+shader_parameter/line_color = null
+shader_parameter/line_thickness = 4.0
+
+[sub_resource type="Animation" id="Animation_djiqd"]
+resource_name = "idle"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ROOT:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ROOT/CanvasGroup/IDLE:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ROOT/CanvasGroup/MOVE:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2p13a"]
+resource_name = "move"
+length = 1.30001
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ROOT/CanvasGroup/MOVE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ROOT:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -11), Vector2(0, -13), Vector2(0, -13), Vector2(0, -13), Vector2(0, -11), Vector2(0, -9), Vector2(0, -9), Vector2(0, -11), Vector2(0, -13), Vector2(0, -13), Vector2(0, -13), Vector2(0, -11), Vector2(0, -9), Vector2(0, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ROOT/CanvasGroup/IDLE:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ROOT/CanvasGroup/MOVE:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jm3bm"]
+_data = {
+"idle": SubResource("Animation_djiqd"),
+"move": SubResource("Animation_2p13a")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_708dy"]
+font = ExtResource("7_myxkt")
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wcys8")
+
+[node name="ROOT" type="Node2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="ROOT"]
+material = SubResource("ShaderMaterial_pxukx")
+
+[node name="IDLE" type="Sprite2D" parent="ROOT/CanvasGroup"]
+modulate = Color(0.0980392, 0.0941176, 0.117647, 1)
+position = Vector2(-9, 0)
+texture = ExtResource("6_2a52p")
+centered = false
+
+[node name="MOVE" parent="ROOT/CanvasGroup" instance=ExtResource("9_kt2wy")]
+visible = false
+modulate = Color(0.0980392, 0.0941176, 0.117647, 1)
+position = Vector2(-12, 0)
+frame = 0
+frame_progress = 0.0
+
+[node name="TORSOS" parent="ROOT/CanvasGroup" instance=ExtResource("3_jpm4a")]
+
+[node name="HEADS" parent="ROOT/CanvasGroup" instance=ExtResource("4_mkaw6")]
+
+[node name="HAIRS" parent="ROOT/CanvasGroup" instance=ExtResource("5_s2gbs")]
+
+[node name="BROWS" type="Node2D" parent="ROOT"]
+modulate = Color(0.141176, 0.219608, 0.254902, 1)
+
+[node name="RightBrow" type="Sprite2D" parent="ROOT/BROWS"]
+position = Vector2(-5, -23)
+scale = Vector2(4, 2)
+texture = ExtResource("6_45ojm")
+centered = false
+
+[node name="LeftBrow" type="Sprite2D" parent="ROOT/BROWS"]
+position = Vector2(4, -23)
+scale = Vector2(3, 2)
+texture = ExtResource("6_45ojm")
+centered = false
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_jm3bm")
+}
+
+[node name="NameTag" type="Label" parent="."]
+visible = false
+offset_left = -26.0
+offset_top = -58.0
+offset_right = 28.0
+offset_bottom = -43.0
+text = "CHAD"
+label_settings = SubResource("LabelSettings_708dy")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Collision2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(9, -39, 9, -25, 9, -10, 9, 0, -9, 0, -9, -10, -9, -25, -9, -39)

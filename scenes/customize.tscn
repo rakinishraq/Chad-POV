@@ -13,14 +13,11 @@ scale = Vector2(2.68496, 2.68496)
 script = null
 metadata/_edit_group_ = true
 
-[node name="MOVE" parent="Player/ROOT" index="1"]
-frame = 12
+[node name="CanvasGroup" parent="Player/ROOT" index="0"]
+material = null
 
-[node name="BROWS" parent="Player/ROOT" index="5"]
+[node name="BROWS" parent="Player/ROOT" index="1"]
 position = Vector2(0, -7.62939e-06)
-
-[node name="NameTag" parent="Player" index="3"]
-visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
