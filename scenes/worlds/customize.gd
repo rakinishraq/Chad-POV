@@ -46,5 +46,5 @@ func start():
 		GameState.players[0] = [head, torso, pant, $Control/LineEdit.get_text()]
 	else:
 		GameState.players.append([head, torso, pant, $Control/LineEdit.get_text()])
-	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	get_tree().change_scene_to_file("res://scenes/worlds/level.tscn")
 
