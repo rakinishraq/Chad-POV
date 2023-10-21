@@ -174,10 +174,10 @@ texture = ExtResource("6_45ojm")
 centered = false
 
 [node name="Animator" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_jm3bm")
 }
-speed_scale = 1.5
 
 [node name="NameTag" type="Label" parent="."]
 visible = false

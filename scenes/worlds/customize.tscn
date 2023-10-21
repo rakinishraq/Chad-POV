@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://iubdfnqeubou"]
+[gd_scene load_steps=6 format=3 uid="uid://iubdfnqeubou"]
 
 [ext_resource type="Script" path="res://scenes/worlds/customize.gd" id="1_en5k6"]
 [ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_nbcx4"]
 [ext_resource type="FontFile" uid="uid://cy7k1vds10ifh" path="res://assets/monogram.ttf" id="3_jou1a"]
 [ext_resource type="AudioStream" uid="uid://7un3gbmm1ng" path="res://assets/click.sfxr" id="4_85fmq"]
+[ext_resource type="AudioStream" uid="uid://kqnoqko0e6aa" path="res://scenes/worlds/start.sfxr" id="5_0ojn0"]
 
 [node name="customize" type="Node2D"]
 script = ExtResource("1_en5k6")
@@ -97,8 +98,11 @@ theme_override_fonts/font = ExtResource("3_jou1a")
 theme_override_font_sizes/font_size = 16
 text = "START"
 
-[node name="click" type="AudioStreamPlayer" parent="."]
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_85fmq")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0ojn0")
 
 [connection signal="pressed" from="Control/HeadLeft" to="." method="head_left"]
 [connection signal="pressed" from="Control/HeadRight" to="." method="head_right"]

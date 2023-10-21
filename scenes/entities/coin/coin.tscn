@@ -50,10 +50,10 @@ region_rect = Rect2(0, 0, 16, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_e3ilx")
 }
-speed_scale = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

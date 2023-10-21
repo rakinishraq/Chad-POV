@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://db4y1u0vnte2y"]
+[gd_scene load_steps=15 format=3 uid="uid://db4y1u0vnte2y"]
 
 [ext_resource type="Script" path="res://scenes/worlds/level.gd" id="1_008le"]
 [ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="1_n2nvr"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bwxnwceyuy6p3" path="res://scenes/entities/coin/coin.tscn" id="7_h5hpa"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="8_002kp"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_i73hq"]
-[ext_resource type="AudioStream" uid="uid://kqnoqko0e6aa" path="res://scenes/worlds/start.sfxr" id="12_vfqb3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwjfm"]
 resource_name = "3"
@@ -463,9 +462,5 @@ inactive_update_mode = 0
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_auwff")
-
-[node name="StartSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_vfqb3")
-autoplay = true
 
 [connection signal="pressed" from="Camera2D/Control/Button" to="." method="_on_button_pressed"]

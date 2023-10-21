@@ -17,7 +17,7 @@ func torso_left():
 func change_torso(dir):
 	torso = wrapi(torso+dir, 0, GameState.torsos)
 	GameState.customize(player, head, torso, pant)
-	$click.play()
+	$ClickSound.play()
 
 func head_right():
 	change_head(1)
@@ -26,7 +26,7 @@ func head_left():
 func change_head(dir):
 	head = wrapi(head+dir, 0, GameState.heads+GameState.hairs-1)
 	GameState.customize(player, head, torso, pant)
-	$click.play()
+	$ClickSound.play()
 
 
 func pants_left():
@@ -36,7 +36,7 @@ func pants_right():
 func change_pants(dir):
 	pant = wrapi(pant+dir, 0, GameState.pants)
 	GameState.customize(player, head, torso, pant)
-	$click.play()
+	$ClickSound.play()
 
 	
 func random():
@@ -45,6 +45,8 @@ func random():
 	change_pants(GameState.rng.randi_range(0, GameState.pants))
 
 func start():
+	$StartSound.play()
 	GameState.player_data = [head, torso, pant]
+	Fade.crossfade_prepare(1, "Diamond", false, false)
 	get_tree().change_scene_to_file("res://scenes/worlds/level.tscn")
-
+	Fade.crossfade_execute()
