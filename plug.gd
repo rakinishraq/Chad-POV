@@ -4,3 +4,4 @@ func _plugging():
 	plug("xxSeys1/Godot_ColoredColissionShapes", {"include": ["ColoredCollisionShapes/"]})
 	plug("KarlTheCool/FollowParent")
 	plug("timothyqiu/gdfxr", {"branch": "godot-4"})
+	plug("KoBeWi/Godot-Universal-Fade")
