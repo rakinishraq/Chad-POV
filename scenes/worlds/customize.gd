@@ -9,6 +9,8 @@ var pant = 0
 
 func _ready():
 	random()
+	if !GameState.release:
+		start()
 
 func torso_right():
 	change_torso(1)

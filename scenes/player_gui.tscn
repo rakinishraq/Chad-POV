@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://j33earr8csir"]
+
+[ext_resource type="Texture2D" uid="uid://bbrxn4gqil61i" path="res://assets/health_border.png" id="1_iw4lo"]
+[ext_resource type="Texture2D" uid="uid://bt2b5k8dn0gu2" path="res://assets/health_full.png" id="2_fy0jw"]
+[ext_resource type="Texture2D" uid="uid://crxb5tvnairrh" path="res://assets/hotbar_border.png" id="3_6iijo"]
+[ext_resource type="Texture2D" uid="uid://d3xlrge23kshj" path="res://assets/hotbar_square.png" id="4_1c7ub"]
+
+[node name="PlayerGUI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Hearts" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Hearts"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Hearts/MarginContainer"]
+layout_mode = 2
+max_value = 81.015
+value = 17.0
+texture_under = ExtResource("2_fy0jw")
+texture_progress = ExtResource("2_fy0jw")
+tint_progress = Color(0.776471, 0, 0.34902, 1)
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Hearts"]
+layout_mode = 2
+texture = ExtResource("1_iw4lo")
+
+[node name="Counters" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_6iijo")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2
+
+[node name="TextureRect9" type="TextureRect" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1c7ub")
+expand_mode = 2

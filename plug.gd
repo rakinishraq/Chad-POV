@@ -5,3 +5,5 @@ func _plugging():
 	plug("KarlTheCool/FollowParent")
 	plug("timothyqiu/gdfxr", {"branch": "godot-4"})
 	plug("KoBeWi/Godot-Universal-Fade")
+	plug("Portponky/better-terrain")
+	plug("brombres/Godot-GameGUI")

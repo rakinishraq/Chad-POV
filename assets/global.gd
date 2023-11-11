@@ -11,6 +11,7 @@ var hairs
 var pants
 
 var player_data = []
+var release = OS.has_feature("standalone")
 
 func _ready():
 	rng.randomize()
