@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr1nwiobw0ixp"]
-
-[ext_resource type="PackedScene" uid="uid://bwxnwceyuy6p3" path="res://scenes/entities/coin/coin.tscn" id="1_xpfx3"]
-
-[node name="Objects" type="Node"]
-
-[node name="Coin" parent="." instance=ExtResource("1_xpfx3")]
-position = Vector2(183, 95)
