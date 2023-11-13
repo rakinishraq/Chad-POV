@@ -1,0 +1,189 @@
+[gd_scene load_steps=11 format=3 uid="uid://dune37rr6enjq"]
+
+[ext_resource type="Texture2D" uid="uid://crxb5tvnairrh" path="res://assets/hotbar_border.png" id="1_v8rer"]
+[ext_resource type="Texture2D" uid="uid://d3xlrge23kshj" path="res://assets/hotbar_square.png" id="2_bxqqt"]
+[ext_resource type="ButtonGroup" uid="uid://cys11blg8me6j" path="res://scenes/editor/hotbar_buttons.tres" id="2_j0wsp"]
+[ext_resource type="Texture2D" uid="uid://tf46qo7vofs0" path="res://assets/empty.ase" id="3_f31ma"]
+[ext_resource type="Texture2D" uid="uid://bm5y80m486aam" path="res://scenes/worlds/tileset.png" id="3_sw6co"]
+[ext_resource type="Texture2D" uid="uid://kcpbthgto0d7" path="res://assets/hotbar_square_pressed.png" id="3_x12x5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hvq7"]
+atlas = ExtResource("3_sw6co")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrxln"]
+atlas = ExtResource("3_sw6co")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snq6e"]
+atlas = ExtResource("3_sw6co")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l0wx"]
+atlas = ExtResource("3_sw6co")
+region = Rect2(16, 48, 16, 16)
+
+[node name="EditorGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="Hotbar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_right = 130.5
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_top = 3
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar"]
+modulate = Color(1, 1, 1, 0.839216)
+layout_mode = 2
+texture = ExtResource("1_v8rer")
+
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar"]
+layout_mode = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hotbar/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureButton" type="TextureButton" parent="Hotbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = ExtResource("2_j0wsp")
+texture_normal = ExtResource("2_bxqqt")
+texture_pressed = ExtResource("3_x12x5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_f31ma")
+expand_mode = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Hotbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_j0wsp")
+texture_normal = ExtResource("2_bxqqt")
+texture_pressed = ExtResource("3_x12x5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton2/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0hvq7")
+expand_mode = 1
+
+[node name="TextureButton3" type="TextureButton" parent="Hotbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = ExtResource("2_j0wsp")
+texture_normal = ExtResource("2_bxqqt")
+texture_pressed = ExtResource("3_x12x5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton3/MarginContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nrxln")
+expand_mode = 1
+
+[node name="TextureButton4" type="TextureButton" parent="Hotbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = ExtResource("2_j0wsp")
+texture_normal = ExtResource("2_bxqqt")
+texture_pressed = ExtResource("3_x12x5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton4/MarginContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_snq6e")
+expand_mode = 1
+
+[node name="TextureButton5" type="TextureButton" parent="Hotbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = ExtResource("2_j0wsp")
+texture_normal = ExtResource("2_bxqqt")
+texture_pressed = ExtResource("3_x12x5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/MarginContainer/HBoxContainer/TextureButton5/MarginContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5l0wx")
+expand_mode = 1

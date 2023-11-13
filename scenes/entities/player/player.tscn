@@ -125,6 +125,7 @@ outline_size = 3
 outline_color = Color(0.901961, 0.901961, 0.901961, 1)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 6
 script = ExtResource("1_wcys8")
 input_left = "ui_left"
 input_right = "ui_right"

@@ -10,7 +10,7 @@ var pant = 0
 func _ready():
 	random()
 	if !GameState.release:
-		start()
+		pass
 
 func torso_right():
 	change_torso(1)
@@ -49,6 +49,4 @@ func random():
 func start():
 	$StartSound.play()
 	GameState.player_data = [head, torso, pant]
-	Fade.crossfade_prepare(1, "Diamond", false, false)
-	get_tree().change_scene_to_file("res://scenes/worlds/level.tscn")
-	Fade.crossfade_execute()
+	GameState.transition("res://scenes/worlds/level.tscn")

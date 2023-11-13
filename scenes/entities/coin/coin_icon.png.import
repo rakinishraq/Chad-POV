@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmwqa8n2gc1kd"
-path.bptc="res://.godot/imported/icon_dirt.png-790106f6efc1f22bfeb9bfa3dbb396ef.bptc.ctex"
+uid="uid://74wbv2yawfpg"
+path.bptc="res://.godot/imported/coin_icon.png-303ffc61c4aae7fca4a1a5d79f301dca.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/icon_dirt.png"
-dest_files=["res://.godot/imported/icon_dirt.png-790106f6efc1f22bfeb9bfa3dbb396ef.bptc.ctex"]
+source_file="res://scenes/entities/coin/coin_icon.png"
+dest_files=["res://.godot/imported/coin_icon.png-303ffc61c4aae7fca4a1a5d79f301dca.bptc.ctex"]
 
 [params]
 

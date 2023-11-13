@@ -1,6 +1,7 @@
 extends Node
 
 var rng = RandomNumberGenerator.new()
+var outline_size = 1
 
 var pant_colors = [Color("#19181e"), Color("#2e2445"), Color("#453239"), Color("#493733"), Color("#362a38")]
 var hair_colors = [Color("#243841"), Color("#19181e"), Color("#c2862f"), Color("#4e3634"), Color("#a04133"), Color("#333641"), Color("#4d3634")]
@@ -20,6 +21,13 @@ func _ready():
 	hairs = load("res://scenes/entities/player/sprites/hair/hairs.tscn").instantiate().sprite_frames.get_frame_count("default")
 	pants = GameState.pant_colors.size()
 
+	outline_size = min(
+		5.05 / 1890 * DisplayServer.window_get_size().x,
+		5.05 / 1080 * DisplayServer.window_get_size().y)
+
+	if release:
+		load("res://scenes/bgm.tscn").instantiate()
+
 func customize(player, head, torso, pant, nametag=""):
 	var head_base = min(head, heads-1)
 	var player_canvas = player.get_node("ROOT/CanvasGroup")
@@ -38,3 +46,8 @@ func customize(player, head, torso, pant, nametag=""):
 	player_canvas.get_node("MOVE").modulate = GameState.pant_colors[pant]
 	
 	player.get_node("NameTag").text = nametag
+
+func transition(scene, time=1, reverse=false, pattern="Diamond"):
+	Fade.crossfade_prepare(time, pattern, reverse, false)
+	get_tree().change_scene_to_file(scene)
+	Fade.crossfade_execute()

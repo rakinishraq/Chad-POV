@@ -62,8 +62,7 @@ func _on_jumped(is_ground_jump):
 
 func _on_size_changed():
 	$ROOT/CanvasGroup.material.set_shader_parameter("line_thickness",
-		min(5.05 / 1890 * DisplayServer.window_get_size().x,
-			5.05 / 1080 * DisplayServer.window_get_size().y)
+		GameState.outline_size
 	)
 
 

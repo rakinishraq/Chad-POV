@@ -1,11 +1,11 @@
 extends Node2D
 
 var collected = false
-var sound = preload("coin.sfxr")
+#var sound = preload("res://scenes/entities/coin/coin.sfxr")
+var current_scene = get_tree().get_current_scene()
 
 func _ready():
 	$AnimationPlayer.play("idle")
-
 
 func _on_area_2d_body_entered(body):
 	$AudioStreamPlayer2D.play()
