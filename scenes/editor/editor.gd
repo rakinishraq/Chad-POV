@@ -10,14 +10,18 @@ var tile_coord_prev = Vector2i.ZERO
 var left_pressed = false
 var right_pressed = false
 
+var root;
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	const path = "res://scenes/levels/"
+	const level_name = "Tileset Test"
+	print(path+level_name+"/tile_map.tscn")
+	root = load(path+level_name+"/tile_map.tscn").instantiate()
+	print(root)
+	add_child(root)
 
-func _physics_process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		if mouse_pos != mouse_pos_prev:
-			$Camera2D.position += -mouse_vel * delta * 60
 
 func _input(event):
 	if left_pressed and tile_coord != tile_coord_prev:
@@ -26,15 +30,20 @@ func _input(event):
 		tile_coord_prev = tile_coord
 	
 	if Input.is_action_just_pressed("editor"):
-		GameState.transition("res://scenes/worlds/level.tscn", 1)
+		GameState.transition(GameState.level_path, 1)
+	
 
 	if event is InputEventMouseMotion:
 		mouse_vel = get_global_mouse_position() - mouse_pos_prev
 		mouse_pos = get_global_mouse_position()
 		mouse_pos_prev = mouse_pos
 
-		tile_coord = $TileMap.local_to_map(mouse_pos)
-		$Highlight.position = $TileMap.map_to_local(tile_coord) - Vector2(8, 8)
+		tile_coord = root.local_to_map(mouse_pos)
+
+		if left_pressed:
+			pass # rectangle select
+		else:
+			$Highlight.position = root.map_to_local(tile_coord) - Vector2(8, 8)
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			right_pressed = event.is_pressed()

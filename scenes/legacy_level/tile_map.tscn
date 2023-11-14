@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://csepui5tqplcu"]
+[gd_scene load_steps=2 format=3 uid="uid://csepui5tqplcu"]
 
 [ext_resource type="TileSet" uid="uid://c5un5s6x7pdl0" path="res://scenes/legacy_level/legacy_tile_map.tres" id="1_0vpge"]
-
-[sub_resource type="Curve2D" id="Curve2D_gsd60"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 352, 0)
-}
-point_count = 2
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource("1_0vpge")
@@ -40,6 +34,3 @@ layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
 layer_4/z_index = 4
 layer_4/tile_data = PackedInt32Array()
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_gsd60")

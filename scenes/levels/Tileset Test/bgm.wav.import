@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxc6c4mgwsrql"
-path="res://.godot/imported/bgm.wav-996d2ad8db03b8b4663c401e3e5bc412.sample"
+path="res://.godot/imported/bgm.wav-6e60db9247a80685e9f12934afb5a07b.sample"
 
 [deps]
 
-source_file="res://scenes/legacy_level/bgm.wav"
-dest_files=["res://.godot/imported/bgm.wav-996d2ad8db03b8b4663c401e3e5bc412.sample"]
+source_file="res://scenes/levels/Tileset Test/bgm.wav"
+dest_files=["res://.godot/imported/bgm.wav-6e60db9247a80685e9f12934afb5a07b.sample"]
 
 [params]
 

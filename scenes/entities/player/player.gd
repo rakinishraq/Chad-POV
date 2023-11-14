@@ -4,6 +4,7 @@ signal leave
 
 var player: int
 var input
+var spawn
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
@@ -12,14 +13,13 @@ const DECEL = 30.0
 const AIR_CTRL = 30.0
 
 var animator
-var camera
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var on_ladder = 0
 
 func _ready():
+	spawn = position
 	animator = $Animator
-	camera = get_parent().get_node("Camera2D")
 
 	var callable = Callable(self, "_on_size_changed")
 	get_viewport().connect("size_changed", callable)
@@ -28,7 +28,7 @@ func _ready():
 	super._ready()
 
 
-func _process(delta):
+func _input(_event):
 	# Animation
 	if abs(velocity).x > 100:
 		$ROOT.scale.x = sign(velocity.x)
@@ -43,20 +43,23 @@ func _process(delta):
 	
 
 func _physics_process(delta):
+	# Death
 	if position.y > 250:
-		position = Vector2(70, 100)
+		position = spawn
 		velocity = Vector2.ZERO
 		$DeathSound.play()
 
+	# Ladder
 	if on_ladder and Input.is_action_pressed(input_jump):
 		velocity.y = -100
 		velocity.x = 0
 		move_and_slide()
 	else:
+		# Default PlatformerController2D
 		super._physics_process(delta)
 
 
-func _on_jumped(is_ground_jump):
+func _on_jumped(_is_ground_jump):
 	$JumpSound.play()
 
 

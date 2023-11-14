@@ -14,7 +14,7 @@ var pants
 var player_data = []
 var release = OS.has_feature("standalone")
 
-var level_path = "res://scenes/level_host.tscn"
+var level_path = "res://scenes/levels/level_host.tscn"
 var editor_path = "res://scenes/editor/editor.tscn"
 
 
