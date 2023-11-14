@@ -15,12 +15,7 @@ var root;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	const path = "res://scenes/levels/"
-	const level_name = "Tileset Test"
-	print(path+level_name+"/tile_map.tscn")
-	root = load(path+level_name+"/tile_map.tscn").instantiate()
-	print(root)
-	add_child(root)
+	root = GameState.load_level(self, "Tileset Test", true)
 
 
 func _input(event):

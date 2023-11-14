@@ -54,3 +54,11 @@ func transition(path, time=1, reverse=false, pattern="Diamond"):
 	Fade.crossfade_prepare(time, pattern, reverse, false)
 	get_tree().change_scene_to_file(path)
 	Fade.crossfade_execute()
+
+
+func load_level(obj, level_name, _editor=false):
+	const path = "res://scenes/levels/"
+	print(path+level_name+"/tile_map.tscn")
+	var root = load(path+level_name+"/tile_map.tscn").instantiate()
+	obj.add_child(root)
+	return root
