@@ -17,6 +17,9 @@ var animator
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var on_ladder = 0
 
+var pressed = false
+@onready var editor = get_parent().get_name() != "LevelHost"
+
 func _ready():
 	spawn = position
 	animator = $Animator
@@ -28,7 +31,7 @@ func _ready():
 	super._ready()
 
 
-func _input(_event):
+func _input(event):
 	# Animation
 	if abs(velocity).x > 100:
 		$ROOT.scale.x = sign(velocity.x)
@@ -40,9 +43,15 @@ func _input(_event):
 			animator.play("idle")
 	else:
 		animator.play("idle")
+
+	if event is InputEventMouseMotion and editor and pressed:
+			position += event.relative
 	
 
 func _physics_process(delta):
+	if editor:
+		return
+
 	# Death
 	if position.y > 250:
 		position = spawn
@@ -73,3 +82,9 @@ func _on_ladder_body_entered(body):
 	if body == self: on_ladder += 1
 func _on_ladder_body_exited(body):
 	if body == self: on_ladder -= 1
+
+
+func _on_button_button_up():
+	pressed = false
+func _on_button_button_down():
+	pressed = true

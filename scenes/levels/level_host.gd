@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	var root = GameState.load_level(self, "Tileset Test", true)
+	var root = GameState.load_level("Tileset Test")
 	var player = root.get_node("Player")
 	$Player.position = player.position
 	$Player.spawn = player.position

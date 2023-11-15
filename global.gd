@@ -1,5 +1,6 @@
 extends Node
 
+# Player System
 var rng = RandomNumberGenerator.new()
 var outline_size = 1
 
@@ -13,9 +14,6 @@ var pants
 
 var player_data = []
 var release = OS.has_feature("standalone")
-
-var level_path = "res://scenes/levels/level_host.tscn"
-var editor_path = "res://scenes/editor/editor.tscn"
 
 
 func _ready():
@@ -50,15 +48,21 @@ func customize(player, head, torso, pant, nametag=""):
 	player.get_node("NameTag").text = nametag
 
 
+# Level System
+var level_path = "res://scenes/levels/level_host.tscn"
+var editor_path = "res://scenes/editor/editor.tscn"
+var sel_level = "Tileset Test"
+
 func transition(path, time=1, reverse=false, pattern="Diamond"):
 	Fade.crossfade_prepare(time, pattern, reverse, false)
 	get_tree().change_scene_to_file(path)
 	Fade.crossfade_execute()
 
 
-func load_level(obj, level_name, _editor=false):
+func load_level(parent, level_name=sel_level):
+	sel_level = level_name
 	const path = "res://scenes/levels/"
 	print(path+level_name+"/tile_map.tscn")
 	var root = load(path+level_name+"/tile_map.tscn").instantiate()
-	obj.add_child(root)
+	parent.add_child(root)
 	return root

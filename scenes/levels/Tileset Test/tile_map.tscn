@@ -1289,7 +1289,7 @@ metadata/_better_terrain = {
 "coord": Vector2i(8, 1),
 "source_id": 12
 }], ["Ice", Color(0.234584, 0.212273, 0.619825, 1), 0, [], {
-"coord": Vector2i(8, 5),
+"coord": Vector2i(7, 5),
 "source_id": 11
 }]],
 "version": "0.2"

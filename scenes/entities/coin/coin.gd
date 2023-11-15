@@ -2,10 +2,14 @@ extends Node2D
 
 var collected = false
 
+@onready var editor = get_parent().get_name() != "LevelHost"
+
 func animate():
 	$AnimationPlayer.play("idle")
 
 func _on_area_2d_body_entered(body):
+	if editor: return
+
 	$AudioStreamPlayer2D.play()
 	$Area2D.queue_free()
 	collected = true
