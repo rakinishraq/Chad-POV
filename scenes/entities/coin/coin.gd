@@ -4,6 +4,9 @@ var collected = false
 
 @onready var editor = get_parent().get_name() != "LevelHost"
 
+func _ready():
+	print(get_parent().get_name())
+
 func animate():
 	$AnimationPlayer.play("idle")
 

@@ -2,11 +2,11 @@ extends Node2D
 
 
 func _ready():
-	var root = GameState.load_level("Tileset Test")
+	var root = GameState.load_level(self, "Tileset Test")
 	var player = root.get_node("Player")
 	$Player.position = player.position
 	$Player.spawn = player.position
-	$Player/Camera2D.enabled = true
+	#$Player/Camera2D.enabled = true
 	player.queue_free()
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://clbe133xgy4rj"]
+[gd_scene load_steps=15 format=3 uid="uid://clbe133xgy4rj"]
 
 [ext_resource type="Texture2D" uid="uid://cc7tvyuau6euf" path="res://scenes/levels/tileset_lava.png" id="1_c7in3"]
 [ext_resource type="Texture2D" uid="uid://dpu1wgwrwgxf4" path="res://scenes/levels/tileset_snow.png" id="2_20j47"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bdxb0kb3385d2" path="res://scenes/levels/tileset_desert.png" id="4_imoou"]
 [ext_resource type="Texture2D" uid="uid://c8jnbhyvi72un" path="res://scenes/levels/tileset_dirt.png" id="5_k44sg"]
 [ext_resource type="Texture2D" uid="uid://c3ggt4bscklky" path="res://scenes/levels/tileset_forest.png" id="6_po72j"]
-[ext_resource type="PackedScene" uid="uid://bwxnwceyuy6p3" path="res://scenes/entities/coin/coin.tscn" id="7_2kwr0"]
 [ext_resource type="PackedScene" uid="uid://dratnwjfldduc" path="res://scenes/entities/player/player.tscn" id="8_jy2um"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kbal"]
@@ -1311,6 +1310,3 @@ layer_1/tile_data = PackedInt32Array(262154, 393228, 2, 262153, 262156, 1, 26215
 
 [node name="Player" parent="." instance=ExtResource("8_jy2um")]
 position = Vector2(225, 185)
-
-[node name="Coin" parent="." instance=ExtResource("7_2kwr0")]
-position = Vector2(305, 169)

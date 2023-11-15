@@ -44,12 +44,11 @@ color = Color(0, 0.933333, 0.537255, 0.584314)
 position = Vector2(175, 100)
 script = ExtResource("3_itb1d")
 
-[node name="EditorGUI" parent="Camera2D" instance=ExtResource("2_hil8e")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="EditorGUI" parent="Camera2D/CanvasLayer" instance=ExtResource("2_hil8e")]
 z_index = 10
-offset_left = -175.0
-offset_top = -100.0
-offset_right = 175.0
-offset_bottom = -100.0
+offset_right = -350.0
 
 [connection signal="button_down" from="Highlight" to="." method="_on_highlight_pressed"]
 [connection signal="button_up" from="Highlight" to="." method="_on_highlight_released"]

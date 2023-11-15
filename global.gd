@@ -62,7 +62,7 @@ func transition(path, time=1, reverse=false, pattern="Diamond"):
 func load_level(parent, level_name=sel_level):
 	sel_level = level_name
 	const path = "res://scenes/levels/"
-	print(path+level_name+"/tile_map.tscn")
-	var root = load(path+level_name+"/tile_map.tscn").instantiate()
+	print(path+level_name+"/level.tscn")
+	var root = load(path+level_name+"/level.tscn").instantiate()
 	parent.add_child(root)
 	return root
